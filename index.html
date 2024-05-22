@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Apple iPhone demo (animations) - fullPage.js</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage full-screen apple iphone 5c similar website. Reproducing one sigle scrolling site like Apple iPhone." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,apple,iphone5c,iphone5s,iphone,iphone-5c,like,reproduce,similar,how to" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="css/examples.css" />
+	<link rel="stylesheet" type="text/css" href="css/design.css" />
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+    
+	<script src="js/jquery-1.12.3.min.js"></script>
+	<script src="js/jquery-ui-1.8.23.custom.min.js"></script>
+
+	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="js/examples.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				'verticalCentered': false,
+				'css3': true,
+				'sectionsColor': ['#F0F2F4', '#fff', '#fff', '#fff'],
+				'navigation': true,
+				'navigationPosition': 'right',
+				'navigationTooltips': ['fullPage.js', 'Powerful', 'Amazing', 'Simple'],
+
+				'afterLoad': function(anchorLink, index){
+					if(index == 2){
+						$('#iphone3, #iphone2, #iphone4').addClass('active');
+					}
+				},
+
+				'onLeave': function(index, nextIndex, direction){
+					if (index == 3 && direction == 'down'){
+						$('.section').eq(index -1).removeClass('moveDown').addClass('moveUp');
+					}
+					else if(index == 3 && direction == 'up'){
+						$('.section').eq(index -1).removeClass('moveUp').addClass('moveDown');
+					}
+
+					$('#staticImg').toggleClass('active', (index == 2 && direction == 'down' ) || (index == 4 && direction == 'up'));
+					$('#staticImg').toggleClass('moveDown', nextIndex == 4);
+					$('#staticImg').toggleClass('moveUp', index == 4 && direction == 'up');
+				}
+			});
+		});
+	</script>
+
+</head>
+<body>
+
+<select id="demosMenu">
+  <option selected>Choose Demo</option>
+  <option id="activeSlide">Active section and slide</option>
+  <option id="apple">Apple iPhone demo (animations)</option>
+  <option id="autoHeight">Auto height</option>
+  <option id="autoplayVideoAndAudio">Autoplay Video and Audio</option>
+  <option id="backgrounds">Background images</option>
+  <option id="backgroundsFixed">Fixed fullscreen backgrounds</option>
+  <option id="backgroundVideo">Background video</option>
+  <option id="callbacks">Callbacks</option>
+  <option id="continuousHorizontal">Continuous horizontal</option>
+  <option id="continuousVertical">Continuous vertical</option>
+  <option id="parallax">Parallax</option>
+  <option id="css3">CSS3</option>
+  <option id="dragAndMove">Drag And Move</option>
+  <option id="easing">Easing</option>
+  <option id="fadingEffect">Fading Effect</option>
+  <option id="fixedHeaders">Fixed headers</option>
+  <option id="gradientBackgrounds">Gradient backgrounds</option>
+  <option id="interlockedSlides">Interlocked Slides</option>
+  <option id="looping">Looping</option>
+  <option id="methods">Methods</option>
+  <option id="navigationV">Vertical navigation dots</option>
+  <option id="navigationH">Horizontal navigation dots</option>
+  <option id="noAnchor">No anchor links</option>
+  <option id="normalScroll">Normal scrolling</option>
+  <option id="normalScrollElements">Normal scroll elements</option>
+  <option id="offsetSections">Offset sections</option>
+  <option id="oneSection">One single section</option>
+  <option id="resetSliders">Reset sliders</option>
+  <option id="responsiveAutoHeight">Responsive Auto Height</option>
+  <option id="responsiveHeight">Responsive Height</option>
+  <option id="responsiveWidth">Responsive Width</option>
+  <option id="responsiveSlides">Responsive Slides</option>
+  <option id="scrollBar">Scroll bar enabled</option>
+  <option id="scrollHorizontally">Scroll horizontally</option>
+  <option id="scrollOverflow">Scroll inside sections and slides</option>
+  <option id="scrollOverflowReset">ScrollOverflow Reset</option>
+  <option id="lazyLoad">Lazy load</option>
+  <option id="scrollingSpeed">Scrolling speed</option>
+</select>
+
+<div id="fullpage">
+	<div id="staticImg">
+		<div class="imgsContainer">
+			<img src="img/iphone-green.png" alt="iphone" id="iphone-green" />
+		</div>
+	</div>
+
+	<div class="section " id="section0">
+		<h1>Apple fullPage.js Demo</h1>
+		<img src="img/iphone1.jpg" alt="iphone" />
+	</div>
+	<div class="section" id="section1">
+		<div class="wrap">
+			<div class="imgsContainer">
+				<img src="img/iphone2.png" alt="iphone" id="iphone2" />
+				<img src="img/iphone3.png" alt="iphone" id="iphone3" />
+				<img src="img/iphone4.png" alt="iphone" id="iphone4" />
+			</div>
+
+			<div class="box">
+				<h2>A powerful plugin</h2>
+				 <strong>fullPage.js</strong>  callbacks allow you to create amazing dynamic sites with a bit of imagination. This example tries to reproduce the Apple iPhone-5c website animations as an example of what fullPage.js is capable of.
+			</div>
+		</div>
+	</div>
+
+	<div class="section moveDown" id="section2">
+		<div class="wrap">
+			<div class="imgsContainer">
+				<img src="img/iphone-yellow.png" alt="iphone" id="iphone-yellow" />
+				<img src="img/iphone-red.png" alt="iphone" id="iphone-red" />
+				<img src="img/iphone-blue.png" alt="iphone" id="iphone-blue" />
+			</div>
+
+			<div class="box">
+				<h2>Amazing stuff</h2>
+				Combining <strong>fullPage.js</strong> with your own CSS styles and animations, you will be able to create something remarkable.
+			</div>
+		</div>
+	</div>
+	<div class="section moveDown" id="section3">
+		<div class="wrap">
+			<div class="box">
+				<h2>Just a demo</h2>
+				This is, of course, just a demo. I didn't want to spend much time on it.
+				Don't expect it to work perfectly in all kind of screens.
+				It has been designed to work on 1180px width or over on modern browsers with CSS3.
+			</div>
+		</div>
+		<div class="imgsContainer">
+			<img src="img/iphone-two.png" alt="iphone" id="iphone-two" />
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
