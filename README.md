@@ -3,4 +3,4 @@
 Apple fullPage.js Demo
 
 
-https://Apple_phone.jobability.co.kr
+http://Apple_phone.jobability.co.kr
