@@ -3,8 +3,7 @@
 Apple fullPage.js Demo
 
 
-http://Apple_phone.jobability.co.kr
-
+https://aebonlee.github.io/Apple_phone/
 
 <img src="./apple01.png"/>
 <img src="./apple02.png"/>
